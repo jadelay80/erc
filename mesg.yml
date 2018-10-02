@@ -24,7 +24,7 @@ events:
       value:
         name: "Value"
         description: "Value of the approval"
-        type: Number
+        type: String
       contractAddress: &contractAddressParam
         name: "Contract address"
         description: "The address of the contract"
@@ -52,7 +52,7 @@ events:
       value:
         name: "Value"
         description: "Value of the approval"
-        type: Number
+        type: String
       contractAddress: *contractAddressParam
 tasks:
   totalSupply:

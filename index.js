@@ -7,22 +7,28 @@ const {
   defaultDecimals
 } = require('./config.json')
 const erc20ABI = require('./erc20-abi.json')
+const BigNumber = require('bignumber.js')
 
 const web3 = new Web3(infuraEndpoint)
 
-const BN = web3.utils.toBN
 const decimals = async (contract) => {
   try {
-    return BN(10).pow(BN(await contract.methods.decimals().call()))
+    return BigNumber(10).pow(BigNumber(await contract.methods.decimals().call()))
   } catch (err) {
-    return BN(defaultDecimals)
+    return BigNumber(defaultDecimals)
   }
 }
 
-const convertValue = async (value, contract) => value / await decimals(contract)
-const convertToValue = async (value, contract) => BN(value).mul(await decimals(contract))
+const convertValue = async (value, contract) => BigNumber(value).dividedBy(await decimals(contract)).toString(10)
+const convertToValue = async (value, contract) => BigNumber(value).multipliedBy(await decimals(contract))
 const dep = { MESG, web3, convertValue, convertToValue, blockConfirmations, defaultGasLimit, erc20ABI }
 const tasksHandler = require('./tasks')(dep)
+
+// const convertValue = value => BigNumber(value).dividedBy(decimalBN).toString(10)
+// const convertToValue = value => BigNumber(value).multipliedBy(decimalBN)
+// const dep = { MESG, web3, erc20, convertValue, convertToValue, blockConfirmations, defaultGasLimit }
+// const tasksHandler = require('./tasks')
+
 const signTxHandler = require('./tasks/signTxHandler')(dep)
 const eventsHandler = require('./events')(dep)
 
