@@ -32,7 +32,13 @@ module.exports = ({
       await fetchEvent(previousBN, shiftedBN)
       previousBN = shiftedBN
     }
-    return setTimeout(pollingBlockNumber, 1000)
+    return setTimeout(async () => {
+      try {
+        await pollingBlockNumber()
+      } catch (err) {
+        console.error(err)
+      }
+    }, 1000)
   }
 
   const fetchEvent = async (previousBN, lastBN) => {
