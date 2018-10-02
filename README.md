@@ -5,9 +5,9 @@
 
 [Website](https://mesg.com/) - [Docs](https://docs.mesg.com/) - [Chat](https://discordapp.com/invite/SaZ5HcE) - [Blog](https://medium.com/mesg)
 
-MESG Service to interact with an Ethereum ERC20 token using [Infura's](https://infura.io/) websocket.
+MESG Service to interact with an Ethereum ERC20 token using [Infura's](https://infura.io/).
 
-This is a generic service to interact with any ERC20 compliant token using [MESG Core](https://github.com/mesg-foundation/core).
+This is a generic service to interact with any [ERC20 compliant](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md) token using [MESG Core](https://github.com/mesg-foundation/core).
 
 # Installation
 
