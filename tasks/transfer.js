@@ -1,3 +1,3 @@
-module.exports = ({
-  convertToValue
-}) => async (contract, { to, value }) => contract.methods.transfer(to, await convertToValue(value, contract)).encodeABI()
+module.exports = () => async (contract, { to, value }) => {
+  return contract.methods.transfer(to, value).encodeABI()
+}

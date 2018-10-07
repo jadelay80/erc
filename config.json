@@ -1,6 +1,5 @@
 {
   "infuraEndpoint": "https://mainnet.infura.io/",
   "blockConfirmations": 4,
-  "defaultGasLimit": 100000,
-  "defaultDecimals": 18
+  "defaultGasLimit": 100000
 }

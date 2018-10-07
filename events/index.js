@@ -1,7 +1,6 @@
 module.exports = ({
   MESG,
   web3,
-  convertValue,
   blockConfirmations,
   erc20ABI
 }) => eventsToHandle => {
@@ -24,7 +23,7 @@ module.exports = ({
     blockNumber: log.blockNumber,
     transactionHash: log.transactionHash,
     contractAddress: log.address,
-    value: await convertValue(event.value, new web3.eth.Contract(erc20ABI, log.address)),
+    value: event.value,
     ...data
   })
 
