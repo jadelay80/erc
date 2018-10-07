@@ -2,6 +2,32 @@
     {
         "constant": true,
         "inputs": [],
+        "name": "name",
+        "outputs": [
+            {
+                "name": "name",
+                "type": "string"
+            }
+        ],
+        "payable": false,
+        "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "symbol",
+      "outputs": [
+          {
+              "name": "symbol",
+              "type": "string"
+          }
+      ],
+      "payable": false,
+      "type": "function"
+  },
+    {
+        "constant": true,
+        "inputs": [],
         "name": "decimals",
         "outputs": [
             {

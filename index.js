@@ -21,6 +21,9 @@ eventsHandler([
 
 // Listen for tasks
 MESG.listenTask({
+  name: tasksHandler(require('./tasks/name')(dep)),
+  symbol: tasksHandler(require('./tasks/symbol')(dep)),
+  decimals: tasksHandler(require('./tasks/decimals')(dep)),
   totalSupply: tasksHandler(require('./tasks/totalSupply')(dep)),
   balanceOf: tasksHandler(require('./tasks/balanceOf')(dep)),
   allowance: tasksHandler(require('./tasks/allowance')(dep)),

@@ -55,6 +55,48 @@ events:
         type: String
       contractAddress: *contractAddressParam
 tasks:
+  name:
+    name: "Token's name"
+    description: "Get the name of this ERC20"
+    inputs:
+      contractAddress: *contractAddressParam
+    outputs:
+      success:
+        name: "Success"
+        description: "Output when success"
+        data:
+          name:
+            name: "Token's name"
+            description: "The name of this ERC20"
+            type: String
+  symbol:
+    name: "Token's symbol"
+    description: "Get the symbol of this ERC20"
+    inputs:
+      contractAddress: *contractAddressParam
+    outputs:
+      success:
+        name: "Success"
+        description: "Output when success"
+        data:
+          symbol:
+            name: "Token's symbol"
+            description: "The symbol of this ERC20"
+            type: String
+  decimals:
+    name: "Number of decimals"
+    description: "Get the number of decimals of this ERC20"
+    inputs:
+      contractAddress: *contractAddressParam
+    outputs:
+      success:
+        name: "Success"
+        description: "Output when success"
+        data:
+          decimals:
+            name: "Number of decimals"
+            description: "The number of decimals of this ERC20"
+            type: Number
   totalSupply:
     name: "Total supply"
     description: "Get the total supply of this ERC20"
