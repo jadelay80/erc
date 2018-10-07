@@ -3,7 +3,7 @@ description: "MESG Service to interact with an Ethereum ERC20 token"
 events:
   approval:
     name: "Approval"
-    description: "The approval event of the ERC20. This event happens when a approval occurred."
+    description: "The approval event of a ERC20. This event happens when an approval occurs"
     data:
       blockNumber:
         name: "Block number"
@@ -23,7 +23,7 @@ events:
         type: String
       value:
         name: "Value"
-        description: "Value of the approval"
+        description: "Value of the approval in token unit"
         type: String
       contractAddress: &contractAddressParam
         name: "Contract address"
@@ -31,7 +31,7 @@ events:
         type: String
   transfer:
     name: "Transfer"
-    description: "The transfer event of the ERC20. This event happens when a transfer occurred."
+    description: "The transfer event of a ERC20. This event happens when a transfer occurs"
     data:
       blockNumber:
         name: "Block number"
@@ -51,74 +51,77 @@ events:
         type: String
       value:
         name: "Value"
-        description: "Value of the approval"
+        description: "Value of the approval in token unit"
         type: String
       contractAddress: *contractAddressParam
 tasks:
   name:
     name: "Token's name"
-    description: "Get the name of this ERC20"
+    description: "Get the name of a ERC20"
     inputs:
       contractAddress: *contractAddressParam
     outputs:
       success:
         name: "Success"
-        description: "Output when success"
+        description: "Output when the task executes successfully"
         data:
           name:
             name: "Token's name"
-            description: "The name of this ERC20"
+            description: "The name of the ERC20"
             type: String
-  symbol:
-    name: "Token's symbol"
-    description: "Get the symbol of this ERC20"
-    inputs:
-      contractAddress: *contractAddressParam
-    outputs:
-      success:
-        name: "Success"
-        description: "Output when success"
-        data:
-          symbol:
-            name: "Token's symbol"
-            description: "The symbol of this ERC20"
-            type: String
-  decimals:
-    name: "Number of decimals"
-    description: "Get the number of decimals of this ERC20"
-    inputs:
-      contractAddress: *contractAddressParam
-    outputs:
-      success:
-        name: "Success"
-        description: "Output when success"
-        data:
-          decimals:
-            name: "Number of decimals"
-            description: "The number of decimals of this ERC20"
-            type: Number
-  totalSupply:
-    name: "Total supply"
-    description: "Get the total supply of this ERC20"
-    inputs:
-      contractAddress: *contractAddressParam
-    outputs:
-      success:
-        name: "Success"
-        description: "Output when success"
-        data:
-          totalSupply:
-            name: "Total supply"
-            description: "The total supply of this ERC20"
-            type: String
-      error:
+      error: &errorOutput
         name: "Error"
-        description: "Output when error"
+        description: "Output when an error occurs"
         data:
           message:
             name: "Message"
-            description: "The error's message"
+            description: "The error message"
             type: String
+  symbol:
+    name: "Token's symbol"
+    description: "Get the symbol of a ERC20"
+    inputs:
+      contractAddress: *contractAddressParam
+    outputs:
+      success:
+        name: "Success"
+        description: "Output when the task executes successfully"
+        data:
+          symbol:
+            name: "Token's symbol"
+            description: "The symbol of the ERC20"
+            type: String
+      error: *errorOutput
+  decimals:
+    name: "Number of decimals"
+    description: "Get the number of decimals of a ERC20"
+    inputs:
+      contractAddress: *contractAddressParam
+    outputs:
+      success:
+        name: "Success"
+        description: "Output when the task executes successfully"
+        data:
+          decimals:
+            name: "Number of decimals"
+            description: "The number of decimals of the ERC20"
+            type: Number
+      error: *errorOutput
+  totalSupply:
+    name: "Total Supply"
+    description: "Get the total supply of a ERC20"
+    inputs:
+      contractAddress: *contractAddressParam
+    outputs:
+      success:
+        name: "Success"
+        description: "Output when the task executes successfully"
+        data:
+          totalSupply:
+            name: "Total supply"
+            description: "The total supply of the ERC20 in token unit"
+            type: String
+      error: *errorOutput
   balanceOf:
     name: "Balance of"
     description: "Get the balance of a given address"
@@ -131,20 +134,13 @@ tasks:
     outputs:
       success:
         name: "Success"
-        description: "Output when success"
+        description: "Output when the task executes successfully"
         data:
           balance:
             name: "Balance"
-            description: "The balance of the inputted address"
+            description: "The balance of the inputted address in token unit"
             type: String
-      error:
-        name: "Error"
-        description: "Output when error"
-        data:
-          message:
-            name: "Message"
-            description: "The error's message"
-            type: String
+      error: *errorOutput
   allowance:
     name: "Allowance"
     description: "Get the allowance between an owner and a spender"
@@ -161,20 +157,13 @@ tasks:
     outputs:
       success:
         name: "Success"
-        description: "Output when success"
+        description: "Output when the task executes successfully"
         data:
           remaining:
             name: "Remaining"
-            description: "The remaining balance of the allowance"
+            description: "The remaining balance of the allowance in token unit"
             type: String
-      error:
-        name: "Error"
-        description: "Output when error"
-        data:
-          message:
-            name: "Message"
-            description: "The error's message"
-            type: String
+      error: *errorOutput
   transfer:
     name: "Transfer"
     description: "Transfer tokens to an address"
@@ -185,7 +174,7 @@ tasks:
         type: String
       value:
         name: "Value"
-        description: "The number of tokens to transfer"
+        description: "The number of tokens to transfer in token unit"
         type: String
       contractAddress: *contractAddressParam
       privateKey: &privateKeyInput
@@ -205,20 +194,13 @@ tasks:
     outputs: &signedTransactionOutputs
       success:
         name: "Success"
-        description: "Output when success"
+        description: "Output when the task executes successfully"
         data:
           transactionHash:
             name: "Transaction hash"
             description: "Hash of the transaction"
             type: String
-      error:
-        name: "Error"
-        description: "Output when error"
-        data:
-          message:
-            name: "Message"
-            description: "The error's message"
-            type: String
+      error: *errorOutput
   approve:
     name: "Approve"
     description: "Authorize a future transfer from"
@@ -229,7 +211,7 @@ tasks:
         type: String
       value:
         name: "Value"
-        description: "The number of token to authorize to transfer"
+        description: "The number of token to authorize to transfer in token unit"
         type: String
       contractAddress: *contractAddressParam
       privateKey: *privateKeyInput
@@ -251,7 +233,7 @@ tasks:
         type: String
       value:
         name: "Value"
-        description: "The number of token to transfer"
+        description: "The number of token to transfer in token unit"
         type: String
       contractAddress: *contractAddressParam
       privateKey: *privateKeyInput
