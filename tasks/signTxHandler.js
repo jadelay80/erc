@@ -15,7 +15,6 @@ module.exports = ({
   return new Promise(async (resolve, reject) => {
     web3.eth.sendSignedTransaction(signedTransaction.rawTransaction)
       .on('transactionHash', transactionHash => {
-        console.log('transactionHash', transactionHash)
         return resolve({ transactionHash })
       })
       .on('error', reject)
