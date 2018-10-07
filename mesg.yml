@@ -68,7 +68,7 @@ tasks:
           totalSupply:
             name: "Total supply"
             description: "The total supply of this ERC20"
-            type: Number
+            type: String
       error:
         name: "Error"
         description: "Output when error"
@@ -94,7 +94,7 @@ tasks:
           balance:
             name: "Balance"
             description: "The balance of the inputted address"
-            type: Number
+            type: String
       error:
         name: "Error"
         description: "Output when error"
@@ -124,7 +124,7 @@ tasks:
           remaining:
             name: "Remaining"
             description: "The remaining balance of the allowance"
-            type: Number
+            type: String
       error:
         name: "Error"
         description: "Output when error"
@@ -144,7 +144,7 @@ tasks:
       value:
         name: "Value"
         description: "The number of tokens to transfer"
-        type: Number
+        type: String
       contractAddress: *contractAddressParam
       privateKey: &privateKeyInput
         name: "Signer private key"
@@ -188,7 +188,7 @@ tasks:
       value:
         name: "Value"
         description: "The number of token to authorize to transfer"
-        type: Number
+        type: String
       contractAddress: *contractAddressParam
       privateKey: *privateKeyInput
       gasPrice: *gasPriceInput
@@ -210,7 +210,7 @@ tasks:
       value:
         name: "Value"
         description: "The number of token to transfer"
-        type: Number
+        type: String
       contractAddress: *contractAddressParam
       privateKey: *privateKeyInput
       gasPrice: *gasPriceInput
