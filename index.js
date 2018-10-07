@@ -24,11 +24,6 @@ const convertToValue = async (value, contract) => BigNumber(value).multipliedBy(
 const dep = { MESG, web3, convertValue, convertToValue, blockConfirmations, defaultGasLimit, erc20ABI }
 const tasksHandler = require('./tasks')(dep)
 
-// const convertValue = value => BigNumber(value).dividedBy(decimalBN).toString(10)
-// const convertToValue = value => BigNumber(value).multipliedBy(decimalBN)
-// const dep = { MESG, web3, erc20, convertValue, convertToValue, blockConfirmations, defaultGasLimit }
-// const tasksHandler = require('./tasks')
-
 const signTxHandler = require('./tasks/signTxHandler')(dep)
 const eventsHandler = require('./events')(dep)
 
