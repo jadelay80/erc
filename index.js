@@ -1,39 +1,29 @@
 const MESG = require('mesg-js').service()
 const Web3 = require('web3')
 const {
-  erc20Address,
-  erc20Decimal,
   infuraEndpoint,
   blockConfirmations,
   defaultGasLimit
 } = require('./config.json')
 const erc20ABI = require('./erc20-abi.json')
-const BigNumber = require('bignumber.js')
-
 const web3 = new Web3(infuraEndpoint)
-const erc20 = new web3.eth.Contract(erc20ABI, erc20Address)
 
-const BN = web3.utils.toBN
-const decimalBN = BN(10).pow(BN(erc20Decimal))
-
-const convertValue = value => BigNumber(value).dividedBy(decimalBN).toString(10)
-const convertToValue = value => BigNumber(value).multipliedBy(decimalBN)
-const dep = { MESG, web3, erc20, convertValue, convertToValue, blockConfirmations, defaultGasLimit }
-const tasksHandler = require('./tasks')
+const dep = { MESG, web3, blockConfirmations, defaultGasLimit, erc20ABI }
+const tasksHandler = require('./tasks')(dep)
 const signTxHandler = require('./tasks/signTxHandler')(dep)
-const eventsHandler = require('./events')
+const eventsHandler = require('./events')(dep)
 
 // Start events listeners
-eventsHandler({
-  ...dep,
-  eventsToHandle: [
-    require('./events/transfer'),
-    require('./events/approval')
-  ]
-})
+eventsHandler([
+  require('./events/transfer'),
+  require('./events/approval')
+])
 
 // Listen for tasks
 MESG.listenTask({
+  name: tasksHandler(require('./tasks/name')(dep)),
+  symbol: tasksHandler(require('./tasks/symbol')(dep)),
+  decimals: tasksHandler(require('./tasks/decimals')(dep)),
   totalSupply: tasksHandler(require('./tasks/totalSupply')(dep)),
   balanceOf: tasksHandler(require('./tasks/balanceOf')(dep)),
   allowance: tasksHandler(require('./tasks/allowance')(dep)),

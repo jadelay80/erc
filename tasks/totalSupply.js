@@ -1,9 +1,4 @@
-module.exports = ({
-  convertValue,
-  erc20
-}) => async () => {
-  var totalSupply = await erc20.methods.totalSupply().call()
-  totalSupply = convertValue(totalSupply)
-  console.log('totalSupply', totalSupply)
+module.exports = () => async (contract) => {
+  var totalSupply = await contract.methods.totalSupply().call()
   return { totalSupply }
 }

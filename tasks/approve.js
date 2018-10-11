@@ -1,4 +1,1 @@
-module.exports = ({
-  convertToValue,
-  erc20
-}) => ({ spender, value }) => erc20.methods.approve(spender, convertToValue(value)).encodeABI()
+module.exports = () => async (contract, { spender, value }) => contract.methods.approve(spender, value).encodeABI()
