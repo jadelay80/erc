@@ -33,7 +33,7 @@ This is a generic service to interact with any [ERC20 compliant](https://github.
 
 ## Mainnet
 
-To use the mainnet, deploy using the follwing endpoint:
+To use the mainnet, deploy using the following endpoint:
 
 ```
 mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20
@@ -41,7 +41,7 @@ mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc
 
 ## Ropsten (POW)
 
-To use the ropsten testnet, deploy using the follwing endpoint:
+To use the ropsten testnet, deploy using the following endpoint:
 
 ```
 mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20#ropsten
@@ -49,7 +49,7 @@ mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc
 
 ## Rinkeby (POA)
 
-To use the rinkeby testnet, deploy using the follwing endpoint:
+To use the rinkeby testnet, deploy using the following endpoint:
 
 ```
 mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20#rinkeby
