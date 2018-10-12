@@ -31,9 +31,31 @@ This is a generic service to interact with any [ERC20 compliant](https://github.
 
 # Installation
 
+## Mainnet
+
+To use the mainnet, deploy using the follwing endpoint:
+
 ```
 mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20
 ```
+
+## Ropsten (POW)
+
+To use the ropsten testnet, deploy using the follwing endpoint:
+
+```
+mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20#ropsten
+```
+
+## Rinkeby (POA)
+
+To use the rinkeby testnet, deploy using the follwing endpoint:
+
+```
+mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20#rinkeby
+```
+
+On this testnet, the number of confirmation is set to 0 because of the Proof Of Authority consensus used by this network.
 
 # Custom install
 
