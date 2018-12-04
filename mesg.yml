@@ -1,5 +1,6 @@
 name: "Ethereum ERC20 token"
 description: "MESG Service to interact with an Ethereum ERC20 token"
+repository: https://github.com/mesg-foundation/service-ethereum-erc20
 events:
   approval:
     name: "Approval"
