@@ -12,6 +12,7 @@ This is a generic service to interact with any [ERC20 compliant](https://github.
 # Contents
 
 - [Installation](#Installation)
+- [Custom install](#custom-install)
 - [Definitions](#Definitions)
   - [Events](#Events)
     - [Approval](#approval)
