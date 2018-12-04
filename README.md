@@ -12,21 +12,20 @@ This is a generic service to interact with any [ERC20 compliant](https://github.
 # Contents
 
 - [Installation](#Installation)
-- [Custom install](#Custom-install)
 - [Definitions](#Definitions)
   - [Events](#Events)
-    - [Approval](#Approval)
-    - [Transfer](#Transfer)
+    - [Approval](#approval)
+    - [Transfer](#transfer)
   - [Tasks](#Tasks)
-    - [Allowance](#Allowance)
-    - [Approve](#Approve)
-    - [Balance Of](#Balance-Of)
-    - [Decimals](#Decimals)
-    - [Name](#Name)
-    - [Symbol](#Symbol)
-    - [Total Supply](#Total-Supply)
-    - [Transfer](#Transfer)
-    - [Transfer From](#Transfer-From)
+    - [Allowance](#allowance)
+    - [Approve](#approve)
+    - [Balance of](#balance-of)
+    - [Number of decimals](#number-of-decimals)
+    - [Token's name](#tokens-name)
+    - [Token's symbol](#tokens-symbol)
+    - [Total Supply](#total-supply)
+    - [Transfer](#transfer)
+    - [Transfer From](#transfer-from)
 
 
 # Installation
