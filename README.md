@@ -3,7 +3,7 @@
   <br/><br/>
 </p>
 
-[Website](https://mesg.com/) - [Docs](https://docs.mesg.com/) - [Chat](https://discordapp.com/invite/SaZ5HcE) - [Blog](https://medium.com/mesg)
+[Website](https://mesg.com/) - [Docs](https://docs.mesg.com/) - [Forum](https://forum.mesg.com) - [Blog](https://medium.com/mesg)
 
 MESG Service to interact with any Ethereum ERC20 token using [Infura's](https://infura.io/).
 
