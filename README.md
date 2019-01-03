@@ -35,7 +35,7 @@ This is a generic service to interact with any [ERC20 compliant](https://github.
 
 This service requires [MESG Core](https://github.com/mesg-foundation/core) to be install.
 
-You can install MESG Core by running the following command or [follow the install guide](https://docs.mesg.tech/guide/start-here/installation.html).
+You can install MESG Core by running the following command or [follow the install guide](https://docs.mesg.com/guide/start-here/installation.html).
 
 ```bash
 bash <(curl -fsSL https://mesg.com/install)
