@@ -12,7 +12,6 @@ This is a generic service to interact with any [ERC20 compliant](https://github.
 # Contents
 
 - [Installation](#Installation)
-- [Custom install](#custom-install)
 - [Definitions](#Definitions)
   - [Events](#Events)
     - [Approval](#approval)
@@ -54,7 +53,7 @@ mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc
 To use the ropsten testnet, deploy using the following endpoint:
 
 ```
-mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20#ropsten
+mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20 --env NODE_ENDPOINT=https://ropsten.infura.io/
 ```
 
 ## Rinkeby (POA)
@@ -62,42 +61,10 @@ mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc
 To use the rinkeby testnet, deploy using the following endpoint:
 
 ```
-mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20#rinkeby
+mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20 --env NODE_ENDPOINT=https://rinkeby.infura.io/
 ```
 
 On this testnet, the number of confirmation is set to 0 because of the Proof Of Authority consensus used by this network.
-
-# Custom install
-
-You need to download this repository to set the config you need.
-
-## Download
-
-```
-git clone https://github.com/mesg-foundation/service-ethereum-erc20
-```
-
-## Update `config.json`
-
-```js
-{
-  "blockConfirmations": 4, // Number of block confirmation
-  "infuraEndpoint": "https://mainnet.infura.io/",
-  "defaultGasLimit": 100000
-}
-```
-
-## Test it
-
-```
-mesg-core service dev
-```
-
-## Deploy the service
-
-```
-mesg-core service deploy
-```
 
 # Definitions
 
