@@ -7,7 +7,7 @@ configuration:
     - PROVIDER_ENDPOINT=https://mainnet.infura.io/
     - BLOCK_CONFIRMATIONS=4
     - DEFAULT_GAS_LIMIT=1000000
-    - CONTRACT_ADDRESS=0xB8c77482e45F1F44dE1745F52C74426C631bDD52
+    - CONTRACT_ADDRESS=
 events:
   approval:
     name: "Approval"

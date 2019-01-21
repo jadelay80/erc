@@ -80,12 +80,20 @@ mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc
 
 On this testnet, the number of confirmation is set to 0 because of the Proof Of Authority consensus used by this network.
 
+## Specify an ERC20
+
+By default this service emits event from any ERC20. To specify one, use the `CONTRACT_ADDRESS` env variable.
+
+```
+mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20 --env CONTRACT_ADDRESS=0x420167D87d35c3A249b32Ef6225872fBD9aB85D2
+```
+
 ## Custom
 
 You can set any provider, block confirmations and default gas limit to match your specific need. Here is a example with those 3 configs:
 
 ```
-mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20 --env PROVIDER_ENDPOINT=AN_ETHEREUM_NODE --env BLOCK_CONFIRMATIONS=1 --env DEFAULT_GAS_LIMIT=1000000
+mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20 --env PROVIDER_ENDPOINT=AN_ETHEREUM_NODE --env BLOCK_CONFIRMATIONS=1 --env DEFAULT_GAS_LIMIT=1000000 --env CONTRACT_ADDRESS=0x420167D87d35c3A249b32Ef6225872fBD9aB85D2
 ```
 
 # Definitions
