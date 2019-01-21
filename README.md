@@ -53,7 +53,7 @@ mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc
 To use the ropsten testnet, deploy using the following endpoint:
 
 ```
-mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20 --env NODE_ENDPOINT=https://ropsten.infura.io/
+mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20 --env PROVIDER_ENDPOINT=https://ropsten.infura.io/
 ```
 
 ## Rinkeby (POA)
@@ -61,7 +61,7 @@ mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc
 To use the rinkeby testnet, deploy using the following endpoint:
 
 ```
-mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20 --env NODE_ENDPOINT=https://rinkeby.infura.io/
+mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20 --env PROVIDER_ENDPOINT=https://rinkeby.infura.io/
 ```
 
 On this testnet, the number of confirmation is set to 0 because of the Proof Of Authority consensus used by this network.

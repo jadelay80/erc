@@ -1,6 +1,7 @@
 module.exports = ({
   MESG,
   web3,
+  blockConfirmations,
   erc20ABI
 }) => eventsToHandle => {
   const eventConfigs = eventsToHandle
@@ -53,7 +54,7 @@ module.exports = ({
   var previousBN
   const pollingBlockNumber = async () => {
     const lastBN = await web3.eth.getBlockNumber()
-    const shiftedBN = lastBN - parseInt(process.env.BLOCK_CONFIRMATIONS, 10)
+    const shiftedBN = lastBN - blockConfirmations
     if (previousBN === undefined) {
       previousBN = shiftedBN - 1
     }
