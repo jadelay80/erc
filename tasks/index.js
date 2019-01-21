@@ -1,10 +1,9 @@
 module.exports = ({
   web3,
-  erc20ABI,
-  contractAddress
+  erc20ABI
 }) => (method) => async (inputs, { success, error }) => {
   try {
-    const contract = new web3.eth.Contract(erc20ABI, inputs.contractAddress || contractAddress)
+    const contract = new web3.eth.Contract(erc20ABI, inputs.contractAddress)
     const data = await method(contract, inputs)
     return success(data)
   } catch (err) {

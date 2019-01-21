@@ -37,7 +37,6 @@ events:
         name: "Contract address"
         description: "The address of the contract"
         type: String
-        optional: true
   transfer:
     name: "Transfer"
     description: "The transfer event of a ERC20. This event happens when a transfer occurs"
