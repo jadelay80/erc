@@ -53,23 +53,21 @@ module.exports = ({
 
   var previousBN
   const pollingBlockNumber = async () => {
-    const lastBN = await web3.eth.getBlockNumber()
-    const shiftedBN = lastBN - blockConfirmations
-    if (previousBN === undefined) {
-      previousBN = shiftedBN - 1
-    }
-    if (shiftedBN > previousBN) {
-      console.log('new block', shiftedBN)
-      await fetchEvents(previousBN, shiftedBN)
-      previousBN = shiftedBN
-    }
-    return setTimeout(async () => {
-      try {
-        await pollingBlockNumber()
-      } catch (err) {
-        console.error(err)
+    try {
+      const lastBN = await web3.eth.getBlockNumber()
+      const shiftedBN = lastBN - blockConfirmations
+      if (previousBN === undefined) {
+        previousBN = shiftedBN - 1
       }
-    }, 1000)
+      if (shiftedBN > previousBN) {
+        console.log('new block', shiftedBN)
+        await fetchEvents(previousBN, shiftedBN)
+        previousBN = shiftedBN
+      }
+    } catch (error) {
+      console.log(error)
+    }
+    return setTimeout(pollingBlockNumber, 1000)
   }
   return pollingBlockNumber()
 }
