@@ -2,7 +2,8 @@ module.exports = ({
   MESG,
   web3,
   blockConfirmations,
-  erc20ABI
+  erc20ABI,
+  contractAddress
 }) => eventsToHandle => {
   const eventConfigs = eventsToHandle
     .map(eventToHandle => {
@@ -31,7 +32,8 @@ module.exports = ({
     const logs = await web3.eth.getPastLogs({
       fromBlock: web3.utils.toHex(previousBN + 1),
       toBlock: web3.utils.toHex(lastBN),
-      topics: [Object.keys(eventConfigs)]
+      topics: [Object.keys(eventConfigs)],
+      address: contractAddress || undefined
     })
     for (const log of logs) {
       const { topics, data, transactionHash } = log

@@ -7,6 +7,7 @@ configuration:
     - PROVIDER_ENDPOINT=https://mainnet.infura.io/
     - BLOCK_CONFIRMATIONS=4
     - DEFAULT_GAS_LIMIT=1000000
+    - CONTRACT_ADDRESS=0xB8c77482e45F1F44dE1745F52C74426C631bDD52
 events:
   approval:
     name: "Approval"
@@ -36,6 +37,7 @@ events:
         name: "Contract address"
         description: "The address of the contract"
         type: String
+        optional: true
   transfer:
     name: "Transfer"
     description: "The transfer event of a ERC20. This event happens when a transfer occurs"
