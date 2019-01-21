@@ -12,7 +12,6 @@ This is a generic service to interact with any [ERC20 compliant](https://github.
 # Contents
 
 - [Installation](#Installation)
-- [Custom install](#custom-install)
 - [Definitions](#Definitions)
   - [Events](#Events)
     - [Approval](#approval)
@@ -41,12 +40,16 @@ You can install MESG Core by running the following command or [follow the instal
 bash <(curl -fsSL https://mesg.com/install)
 ```
 
+## Infura
+
+This service is using Infura as an Ethereum Provider. Infura requires application to use a `PROJECT_ID`. Please register at https://infura.io/register to get a `PROJECT_ID` and don't forget to replace it in the following `PROVIDER_ENDPOINT` URL.
+
 ## Mainnet
 
 To use the mainnet, deploy using the following endpoint:
 
 ```
-mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20
+mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20 --env PROVIDER_ENDPOINT=https://ropsten.infura.io/v3/PROJECT_ID
 ```
 
 ## Ropsten (POW)
@@ -54,7 +57,7 @@ mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc
 To use the ropsten testnet, deploy using the following endpoint:
 
 ```
-mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20#ropsten
+mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20 --env PROVIDER_ENDPOINT=https://ropsten.infura.io/v3/PROJECT_ID
 ```
 
 ## Rinkeby (POA)
@@ -62,41 +65,27 @@ mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc
 To use the rinkeby testnet, deploy using the following endpoint:
 
 ```
-mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20#rinkeby
+mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20 --env PROVIDER_ENDPOINT=https://rinkeby.infura.io/v3/PROJECT_ID --env BLOCK_CONFIRMATIONS=0
 ```
 
 On this testnet, the number of confirmation is set to 0 because of the Proof Of Authority consensus used by this network.
 
-# Custom install
+## Kovan (POA)
 
-You need to download this repository to set the config you need.
-
-## Download
+To use the kovan testnet, deploy using the following endpoint:
 
 ```
-git clone https://github.com/mesg-foundation/service-ethereum-erc20
+mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20 --env PROVIDER_ENDPOINT=https://kovan.infura.io/v3/PROJECT_ID --env BLOCK_CONFIRMATIONS=0
 ```
 
-## Update `config.json`
+On this testnet, the number of confirmation is set to 0 because of the Proof Of Authority consensus used by this network.
 
-```js
-{
-  "blockConfirmations": 4, // Number of block confirmation
-  "infuraEndpoint": "https://mainnet.infura.io/",
-  "defaultGasLimit": 100000
-}
-```
+## Custom
 
-## Test it
+You can set any provider, block confirmations and default gas limit to match your specific need. Here is a example with those 3 configs:
 
 ```
-mesg-core service dev
-```
-
-## Deploy the service
-
-```
-mesg-core service deploy
+mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20 --env PROVIDER_ENDPOINT=AN_ETHEREUM_NODE --env BLOCK_CONFIRMATIONS=1 --env DEFAULT_GAS_LIMIT=1000000
 ```
 
 # Definitions

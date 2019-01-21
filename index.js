@@ -1,12 +1,11 @@
 const MESG = require('mesg-js').service()
 const Web3 = require('web3')
-const {
-  infuraEndpoint,
-  blockConfirmations,
-  defaultGasLimit
-} = require('./config.json')
 const erc20ABI = require('./erc20-abi.json')
-const web3 = new Web3(infuraEndpoint)
+const providerEndpoint = process.env.PROVIDER_ENDPOINT
+const blockConfirmations = parseInt(process.env.BLOCK_CONFIRMATIONS, 10)
+const defaultGasLimit = parseInt(process.env.DEFAULT_GAS_LIMIT, 10)
+
+const web3 = new Web3(providerEndpoint)
 
 const dep = { MESG, web3, blockConfirmations, defaultGasLimit, erc20ABI }
 const tasksHandler = require('./tasks')(dep)
