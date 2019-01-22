@@ -4,10 +4,11 @@ const erc20ABI = require('./erc20-abi.json')
 const providerEndpoint = process.env.PROVIDER_ENDPOINT
 const blockConfirmations = parseInt(process.env.BLOCK_CONFIRMATIONS, 10)
 const defaultGasLimit = parseInt(process.env.DEFAULT_GAS_LIMIT, 10)
+const contractAddress = process.env.CONTRACT_ADDRESS
 
 const web3 = new Web3(providerEndpoint)
 
-const dep = { MESG, web3, blockConfirmations, defaultGasLimit, erc20ABI }
+const dep = { MESG, web3, blockConfirmations, defaultGasLimit, erc20ABI, contractAddress }
 const tasksHandler = require('./tasks')(dep)
 const signTxHandler = require('./tasks/signTxHandler')(dep)
 const eventsHandler = require('./events')(dep)
