@@ -49,7 +49,7 @@ This service is using Infura as an Ethereum Provider. Infura requires applicatio
 To use the mainnet, deploy using the following endpoint:
 
 ```
-mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20 --env PROVIDER_ENDPOINT=https://ropsten.infura.io/v3/PROJECT_ID
+mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20 --env PROVIDER_ENDPOINT=https://mainnet.infura.io/v3/PROJECT_ID
 ```
 
 ## Ropsten (POW)
