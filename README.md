@@ -40,60 +40,63 @@ You can install MESG Core by running the following command or [follow the instal
 bash <(curl -fsSL https://mesg.com/install)
 ```
 
-## Infura
+## Purchase the service
 
-This service is using Infura as an Ethereum Provider. Infura requires application to use a `PROJECT_ID`. Please register at https://infura.io/register to get a `PROJECT_ID` and don't forget to replace it in the following `PROVIDER_ENDPOINT` URL.
+To deploy this service, you first need to purchase one of its offer from the [MESG Marketplace](https://marketplace.mesg.com). 
 
-## Mainnet
+To do so, go on the service's page on the MESG Marketplace and check the offer tab:
+https://marketplace.mesg.com/services/ethereum-erc20
 
-To use the mainnet, deploy using the following endpoint:
+## Deploy the service
+
+This service requires some configuration in order to work properly. Copy the deploy command from the marketplace place and add to it the following configurations.
+
+### Infura
+
+This service can use Infura as an Ethereum Provider, but it requires application to first register. Go to https://infura.io/register to get a `PROJECT_ID` and don't forget to replace it in the following `PROVIDER_ENDPOINT` configs.
+
+### Mainnet
+
+To use the mainnet, add to the deploy command the following config:
+```
+--env PROVIDER_ENDPOINT=https://mainnet.infura.io/v3/PROJECT_ID
+```
+
+The full command should look like:
+```
+mesg-core service deploy mesg://marketplace/service/VERSION_HASH --env PROVIDER_ENDPOINT=https://mainnet.infura.io/v3/PROJECT_ID
+```
+
+### Rinkeby (POA)
+
+To use the rinkeby testnet, add to the deploy command the following config:
 
 ```
-mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20 --env PROVIDER_ENDPOINT=https://mainnet.infura.io/v3/PROJECT_ID
+--env PROVIDER_ENDPOINT=https://rinkeby.infura.io/v3/PROJECT_ID --env BLOCK_CONFIRMATIONS=0
 ```
 
-## Ropsten (POW)
-
-To use the ropsten testnet, deploy using the following endpoint:
-
+The full command should look like:
 ```
-mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20 --env PROVIDER_ENDPOINT=https://ropsten.infura.io/v3/PROJECT_ID
-```
-
-## Rinkeby (POA)
-
-To use the rinkeby testnet, deploy using the following endpoint:
-
-```
-mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20 --env PROVIDER_ENDPOINT=https://rinkeby.infura.io/v3/PROJECT_ID --env BLOCK_CONFIRMATIONS=0
+mesg-core service deploy mesg://marketplace/service/VERSION_HASH --env PROVIDER_ENDPOINT=https://rinkeby.infura.io/v3/PROJECT_ID --env BLOCK_CONFIRMATIONS=0
 ```
 
 On this testnet, the number of confirmation is set to 0 because of the Proof Of Authority consensus used by this network.
 
-## Kovan (POA)
+### Specify an ERC20
 
-To use the kovan testnet, deploy using the following endpoint:
+By default this service emits event from any ERC20. To specify one, set the `CONTRACT_ADDRESS` env variable to the address of the ERC20 to only listen to.
 
+By example, to listen to only the MESG Token, add to the deploy command:
 ```
-mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20 --env PROVIDER_ENDPOINT=https://kovan.infura.io/v3/PROJECT_ID --env BLOCK_CONFIRMATIONS=0
-```
-
-On this testnet, the number of confirmation is set to 0 because of the Proof Of Authority consensus used by this network.
-
-## Specify an ERC20
-
-By default this service emits event from any ERC20. To specify one, use the `CONTRACT_ADDRESS` env variable.
-
-```
-mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20 --env CONTRACT_ADDRESS=0x420167D87d35c3A249b32Ef6225872fBD9aB85D2
+--env CONTRACT_ADDRESS=0x420167D87d35c3A249b32Ef6225872fBD9aB85D2
 ```
 
-## Custom
+### Custom
 
 You can set any provider, block confirmations and default gas limit to match your specific need. Here is a example with those 3 configs:
 
 ```
-mesg-core service deploy https://github.com/mesg-foundation/service-ethereum-erc20 --env PROVIDER_ENDPOINT=AN_ETHEREUM_NODE --env BLOCK_CONFIRMATIONS=1 --env DEFAULT_GAS_LIMIT=1000000 --env CONTRACT_ADDRESS=0x420167D87d35c3A249b32Ef6225872fBD9aB85D2
+--env PROVIDER_ENDPOINT=AN_ETHEREUM_NODE --env BLOCK_CONFIRMATIONS=1 --env DEFAULT_GAS_LIMIT=1000000 --env CONTRACT_ADDRESS=0x420167D87d35c3A249b32Ef6225872fBD9aB85D2
 ```
 
 # Definitions
