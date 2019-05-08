@@ -48,7 +48,7 @@ module.exports = ({
         const event = web3.eth.abi.decodeLog(abi.inputs, data, topics)
         await MESG.emitEvent(eventKey, await defaultPayload(log, event, parseEvent(event)))
       } catch (err) {
-        console.error('error with transaction', transactionHash, err.toString())
+        console.error('error with transaction', transactionHash, err.message)
       }
     }
   }

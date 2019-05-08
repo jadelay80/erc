@@ -8,6 +8,6 @@ module.exports = ({
     return success(data)
   } catch (err) {
     console.error(err)
-    return error({message: err.toString()})
+    return error({message: err.message})
   }
 }
