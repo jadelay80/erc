@@ -69,67 +69,40 @@ tasks:
     inputs:
       contractAddress: *contractAddressParam
     outputs:
-      success:
-        name: "Success"
-        description: "Output when the task executes successfully"
-        data:
-          name:
-            name: "Token's name"
-            description: "The name of the ERC20"
-            type: String
-      error: &errorOutput
-        name: "Error"
-        description: "Output when an error occurs"
-        data:
-          message:
-            name: "Message"
-            description: "The error message"
-            type: String
+      name:
+        name: "Token's name"
+        description: "The name of the ERC20"
+        type: String
   symbol:
     name: "Token's symbol"
     description: "Get the symbol of a ERC20"
     inputs:
       contractAddress: *contractAddressParam
     outputs:
-      success:
-        name: "Success"
-        description: "Output when the task executes successfully"
-        data:
-          symbol:
-            name: "Token's symbol"
-            description: "The symbol of the ERC20"
-            type: String
-      error: *errorOutput
+      symbol:
+        name: "Token's symbol"
+        description: "The symbol of the ERC20"
+        type: String
   decimals:
     name: "Number of decimals"
     description: "Get the number of decimals of a ERC20"
     inputs:
       contractAddress: *contractAddressParam
     outputs:
-      success:
-        name: "Success"
-        description: "Output when the task executes successfully"
-        data:
-          decimals:
-            name: "Number of decimals"
-            description: "The number of decimals of the ERC20"
-            type: Number
-      error: *errorOutput
+      decimals:
+        name: "Number of decimals"
+        description: "The number of decimals of the ERC20"
+        type: Number
   totalSupply:
     name: "Total Supply"
     description: "Get the total supply of a ERC20"
     inputs:
       contractAddress: *contractAddressParam
     outputs:
-      success:
-        name: "Success"
-        description: "Output when the task executes successfully"
-        data:
-          totalSupply:
-            name: "Total supply"
-            description: "The total supply of the ERC20 in token unit"
-            type: String
-      error: *errorOutput
+      totalSupply:
+        name: "Total supply"
+        description: "The total supply of the ERC20 in token unit"
+        type: String
   balanceOf:
     name: "Balance of"
     description: "Get the balance of a given address"
@@ -140,15 +113,10 @@ tasks:
         type: String
       contractAddress: *contractAddressParam
     outputs:
-      success:
-        name: "Success"
-        description: "Output when the task executes successfully"
-        data:
-          balance:
-            name: "Balance"
-            description: "The balance of the inputted address in token unit"
-            type: String
-      error: *errorOutput
+      balance:
+        name: "Balance"
+        description: "The balance of the inputted address in token unit"
+        type: String
   allowance:
     name: "Allowance"
     description: "Get the allowance between an owner and a spender"
@@ -163,15 +131,10 @@ tasks:
         type: String
       contractAddress: *contractAddressParam
     outputs:
-      success:
-        name: "Success"
-        description: "Output when the task executes successfully"
-        data:
-          remaining:
-            name: "Remaining"
-            description: "The remaining balance of the allowance in token unit"
-            type: String
-      error: *errorOutput
+      remaining:
+        name: "Remaining"
+        description: "The remaining balance of the allowance in token unit"
+        type: String
   transfer:
     name: "Transfer"
     description: "Transfer tokens to an address"
@@ -200,15 +163,10 @@ tasks:
         type: Number
         optional: true
     outputs: &signedTransactionOutputs
-      success:
-        name: "Success"
-        description: "Output when the task executes successfully"
-        data:
-          transactionHash:
-            name: "Transaction hash"
-            description: "Hash of the transaction"
-            type: String
-      error: *errorOutput
+      transactionHash:
+        name: "Transaction hash"
+        description: "Hash of the transaction"
+        type: String
   approve:
     name: "Approve"
     description: "Authorize a future transfer from"
@@ -225,8 +183,7 @@ tasks:
       privateKey: *privateKeyInput
       gasPrice: *gasPriceInput
       gasLimit: *gasLimitInput
-    outputs:
-      <<: *signedTransactionOutputs
+    outputs: *signedTransactionOutputs
   transferFrom:
     name: "Transfer From"
     description: "Transfer tokens from an approved address"
@@ -247,5 +204,4 @@ tasks:
       privateKey: *privateKeyInput
       gasPrice: *gasPriceInput
       gasLimit: *gasLimitInput
-    outputs:
-      <<: *signedTransactionOutputs
+    outputs: *signedTransactionOutputs
