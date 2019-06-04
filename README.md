@@ -7,7 +7,7 @@
 
 MESG Service to interact with any Ethereum ERC20 token using [Infura's](https://infura.io/).
 
-This is a generic service to interact with any [ERC20 compliant](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md) token using [MESG Core](https://github.com/mesg-foundation/core).
+This is a generic service to interact with any [ERC20 compliant](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md) token using [MESG Engine](https://github.com/mesg-foundation/core).
 
 # Contents
 
@@ -30,11 +30,11 @@ This is a generic service to interact with any [ERC20 compliant](https://github.
 
 # Installation
 
-## MESG Core
+## MESG Engine
 
-This service requires [MESG Core](https://github.com/mesg-foundation/core) to be install.
+This service requires [MESG Engine](https://github.com/mesg-foundation/core) to be install.
 
-You can install MESG Core by running the following command or [follow the install guide](https://docs.mesg.com/guide/start-here/installation.html).
+You can install MESG Engine by running the following command or [follow the install guide](https://docs.mesg.com/guide/start-here/installation.html).
 
 ```bash
 bash <(curl -fsSL https://mesg.com/install)
