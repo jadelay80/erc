@@ -143,15 +143,9 @@ Get the name of a ERC20
   
 ##### Outputs
 
-###### Token&#x27;s name
-
-Output key: `name`
-
-The name of the ERC20
-
 | **Name** | **Key** | **Type** | **Description** |
 | --- | --- | --- | --- |
-
+| **Token&#x27;s name** | `name` | `String` | The name of the ERC20 |
 <h4 id="symbol">Token&#x27;s symbol</h4>
 
 Task key: `symbol`
@@ -166,15 +160,9 @@ Get the symbol of a ERC20
   
 ##### Outputs
 
-###### Token&#x27;s symbol
-
-Output key: `symbol`
-
-The symbol of the ERC20
-
 | **Name** | **Key** | **Type** | **Description** |
 | --- | --- | --- | --- |
-
+| **Token&#x27;s symbol** | `symbol` | `String` | The symbol of the ERC20 |
 <h4 id="decimals">Number of decimals</h4>
 
 Task key: `decimals`
@@ -189,15 +177,9 @@ Get the number of decimals of a ERC20
   
 ##### Outputs
 
-###### Number of decimals
-
-Output key: `decimals`
-
-The number of decimals of the ERC20
-
 | **Name** | **Key** | **Type** | **Description** |
 | --- | --- | --- | --- |
-
+| **Number of decimals** | `decimals` | `Number` | The number of decimals of the ERC20 |
 <h4 id="totalSupply">Total Supply</h4>
 
 Task key: `totalSupply`
@@ -212,15 +194,9 @@ Get the total supply of a ERC20
   
 ##### Outputs
 
-###### Total supply
-
-Output key: `totalSupply`
-
-The total supply of the ERC20 in token unit
-
 | **Name** | **Key** | **Type** | **Description** |
 | --- | --- | --- | --- |
-
+| **Total supply** | `totalSupply` | `String` | The total supply of the ERC20 in token unit |
 <h4 id="balanceOf">Balance of</h4>
 
 Task key: `balanceOf`
@@ -236,15 +212,9 @@ Get the balance of a given address
   
 ##### Outputs
 
-###### Balance
-
-Output key: `balance`
-
-The balance of the inputted address in token unit
-
 | **Name** | **Key** | **Type** | **Description** |
 | --- | --- | --- | --- |
-
+| **Balance** | `balance` | `String` | The balance of the inputted address in token unit |
 <h4 id="allowance">Allowance</h4>
 
 Task key: `allowance`
@@ -261,15 +231,9 @@ Get the allowance between an owner and a spender
   
 ##### Outputs
 
-###### Remaining
-
-Output key: `remaining`
-
-The remaining balance of the allowance in token unit
-
 | **Name** | **Key** | **Type** | **Description** |
 | --- | --- | --- | --- |
-
+| **Remaining** | `remaining` | `String` | The remaining balance of the allowance in token unit |
 <h4 id="transfer">Transfer</h4>
 
 Task key: `transfer`
@@ -289,15 +253,9 @@ Transfer tokens to an address
   
 ##### Outputs
 
-###### Transaction hash
-
-Output key: `transactionHash`
-
-Hash of the transaction
-
 | **Name** | **Key** | **Type** | **Description** |
 | --- | --- | --- | --- |
-
+| **Transaction hash** | `transactionHash` | `String` | Hash of the transaction |
 <h4 id="approve">Approve</h4>
 
 Task key: `approve`
@@ -317,15 +275,9 @@ Authorize a future transfer from
   
 ##### Outputs
 
-###### Transaction hash
-
-Output key: `transactionHash`
-
-Hash of the transaction
-
 | **Name** | **Key** | **Type** | **Description** |
 | --- | --- | --- | --- |
-
+| **Transaction hash** | `transactionHash` | `String` | Hash of the transaction |
 <h4 id="transferFrom">Transfer From</h4>
 
 Task key: `transferFrom`
@@ -346,13 +298,7 @@ Transfer tokens from an approved address
   
 ##### Outputs
 
-###### Transaction hash
-
-Output key: `transactionHash`
-
-Hash of the transaction
-
 | **Name** | **Key** | **Type** | **Description** |
 | --- | --- | --- | --- |
-
+| **Transaction hash** | `transactionHash` | `String` | Hash of the transaction |
 
