@@ -1,5 +1,4 @@
-
-[Website](https://mesg.com/) - [Docs](https://docs.mesg.com/) - [Forum](https://forum.mesg.com) - [Blog](https://medium.com/mesg)
+# Ethereum ERC20 token
 
 MESG Service to interact with any Ethereum ERC20 token using [Infura's](https://infura.io/).
 
@@ -59,7 +58,7 @@ To use the mainnet, add to the deploy command the following config:
 
 The full command should look like:
 ```
-mesg-core service deploy mesg://marketplace/service/VERSION_HASH --env PROVIDER_ENDPOINT=https://mainnet.infura.io/v3/PROJECT_ID
+mesg-cli service:deploy mesg://marketplace/service/VERSION_HASH --env PROVIDER_ENDPOINT=https://mainnet.infura.io/v3/PROJECT_ID
 ```
 
 ### Rinkeby
@@ -72,7 +71,7 @@ To use the rinkeby testnet, add to the deploy command the following config:
 
 The full command should look like:
 ```
-mesg-core service deploy mesg://marketplace/service/VERSION_HASH --env PROVIDER_ENDPOINT=https://rinkeby.infura.io/v3/PROJECT_ID --env BLOCK_CONFIRMATIONS=0
+mesg-cli service:deploy mesg://marketplace/service/VERSION_HASH --env PROVIDER_ENDPOINT=https://rinkeby.infura.io/v3/PROJECT_ID --env BLOCK_CONFIRMATIONS=0
 ```
 
 On this testnet, the number of confirmation is set to 0 because of the Proof Of Authority consensus used by this network.
