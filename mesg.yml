@@ -4,7 +4,7 @@ description: "MESG Service to interact with an Ethereum ERC20 token"
 repository: https://github.com/mesg-foundation/service-ethereum-erc20
 configuration:
   env:
-    - PROVIDER_ENDPOINT=https://mainnet.infura.io/
+    - PROVIDER_ENDPOINT=__ENV_PROVIDER_ENDPOINT_NEEDS_TO_BE_REPLACED__
     - BLOCK_CONFIRMATIONS=4
     - DEFAULT_GAS_LIMIT=1000000
     - CONTRACT_ADDRESS=
