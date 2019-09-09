@@ -68,6 +68,10 @@ module.exports = ({
       }
     } catch (error) {
       console.log(error)
+      // throw error
+      // the service should restart to start from fresh.
+      // There is a problem when the polling is disconnected for too long:
+      // Error: Returned error: query returned more than 10000 results
     }
     return setTimeout(pollingBlockNumber, 1000)
   }
