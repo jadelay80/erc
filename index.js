@@ -1,4 +1,4 @@
-const MESG = require('mesg-js').service()
+const Service = require('@mesg/service')
 const Web3 = require('web3')
 const erc20ABI = require('./erc20-abi.json')
 const providerEndpoint = process.env.PROVIDER_ENDPOINT
@@ -6,6 +6,7 @@ const blockConfirmations = parseInt(process.env.BLOCK_CONFIRMATIONS, 10)
 const defaultGasLimit = parseInt(process.env.DEFAULT_GAS_LIMIT, 10)
 const contractAddress = process.env.CONTRACT_ADDRESS
 
+const MESG = new Service()
 const web3 = new Web3(providerEndpoint)
 
 const dep = { MESG, web3, blockConfirmations, defaultGasLimit, erc20ABI, contractAddress }
@@ -14,10 +15,7 @@ const signTxHandler = require('./tasks/signTxHandler')(dep)
 const eventsHandler = require('./events')(dep)
 
 // Start events listeners
-eventsHandler([
-  require('./events/transfer'),
-  require('./events/approval')
-])
+eventsHandler([require('./events/transfer'), require('./events/approval')])
 
 // Listen for tasks
 MESG.listenTask({
