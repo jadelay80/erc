@@ -1,5 +1,5 @@
 module.exports = ({
-  MESG,
+  Liteflow,
   web3,
   blockConfirmations,
   erc20ABI,
@@ -46,7 +46,7 @@ module.exports = ({
           topics.splice(0, 1)
         }
         const event = web3.eth.abi.decodeLog(abi.inputs, data, topics)
-        await MESG.emitEvent(eventKey, await defaultPayload(log, event, parseEvent(event)))
+        await Liteflow.emitEvent(eventKey, await defaultPayload(log, event, parseEvent(event)))
       } catch (err) {
         console.error('error with transaction', transactionHash, err.message)
       }
